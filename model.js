@@ -1,8 +1,9 @@
 const URL_ROOTER = 'https://restcountries.com/v3.1'
 const countryFragment = document.createDocumentFragment()
+const countrySection = document.querySelector('section#countrySection')
+const countryInformation = document.getElementById('countryInformation')
 const countryTemplate = document.getElementById('countryTemplate').content
 const filterRegion = document.querySelector('article > section#filterRegion')
-const countrySection = document.querySelector('section#countrySection')
 const inputCountry = document.querySelector('form > label > input[name="country"]')
 
 
@@ -18,9 +19,10 @@ document.addEventListener('click', event => {
      * @type {Element}
      */
     const target = event.target
-    if(target.matches('article :is(#filterText, div, p, ion-icon)')) {
+    if(target.matches('form.w-full.rounded-sm + article :is(#filterText, div, p, ion-icon)')) {
         filterRegion.classList.toggle('hidden')
     }else if(target.matches('#filterRegion > ul > li')) {
+        inputCountry.value = ''
         filterRegion.classList.toggle('hidden')
         const value = target.getAttribute('value')
         if(value === 'all') {
@@ -32,10 +34,9 @@ document.addEventListener('click', event => {
 })
 
 document.addEventListener('keyup', event => {    
-    if(inputCountry.value.length > 0) {
-        consumer({ urlRequest: `${request.search}/${inputCountry.value}` })
-    }else {
-        consumer({ urlRequest: request.all })
+    const regex = new RegExp('^[A-z]$')
+    if(inputCountry === document.activeElement && regex.test(event.key)) {
+        searchCountry()
     }
 })
 
@@ -46,6 +47,24 @@ document.addEventListener('focusin', event => {
 document.addEventListener('DOMContentLoaded', event => {
     consumer({ clear: false, urlRequest: request.all })
 })
+
+
+document.addEventListener('submit', event => {
+    event.preventDefault()
+})
+
+
+/**
+ * @returns {void}
+ */
+function searchCountry() {
+    if(inputCountry.value.length > 0) {
+        consumer({ urlRequest: `${request.search}/${inputCountry.value}` })
+    }else {
+        consumer({ urlRequest: request.all })
+    }
+}
+
 
 
 /**
@@ -74,7 +93,7 @@ async function supplier(jsonData) {
  * @property {RequestInit} init
  * @param {consumerAPI} param 
  */
-async function consumer({ clear = true, urlRequest, init = {} }) {
+function consumer({ clear = true, urlRequest, init = {} }) {
     if(clear) clearNodes(countrySection)
     fetch(urlRequest, init)
         .then(response => response.ok? response.json() : Promise.reject(new Error('La petición no tiene contenido.')))
@@ -87,7 +106,7 @@ async function consumer({ clear = true, urlRequest, init = {} }) {
  * 
  * @param {Element} currentNode 
  */
-async function clearNodes(currentNode) {
+function clearNodes(currentNode) {
     [...currentNode.children].filter(node => node.nodeName === 'ARTICLE')
                              .forEach(node => node.remove())
 }
