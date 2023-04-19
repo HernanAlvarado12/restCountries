@@ -12,5 +12,8 @@
     "tailwindcss"
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4"
+  }
 }
