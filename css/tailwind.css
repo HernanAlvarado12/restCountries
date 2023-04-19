@@ -527,6 +527,7 @@ html {
   --tw-backdrop-sepia:  ;
 }
 
+
 .absolute {
   position: absolute;
 }
@@ -546,6 +547,7 @@ html {
 .z-10 {
   z-index: 10;
 }
+
 
 .mx-auto {
   margin-left: auto;
@@ -587,6 +589,7 @@ html {
 .flex {
   display: flex;
 }
+
 
 .grid {
   display: grid;
@@ -790,6 +793,7 @@ html {
   font-size: 1.6rem;
 }
 
+
 .text-xs {
   font-size: 1.4rem;
 }
@@ -797,6 +801,7 @@ html {
 .font-bold {
   font-weight: 700;
 }
+
 
 .font-light {
   font-weight: 300;
