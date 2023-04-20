@@ -30,6 +30,8 @@ document.addEventListener('click', event => {
         }else {
             consumer({ urlRequest: `${request.region}/${value}` })
         }
+    }else if(target.matches('header > nav > div span')) {
+        darkMode()
     }
 })
 
@@ -45,6 +47,7 @@ document.addEventListener('focusin', event => {
 })
 
 document.addEventListener('DOMContentLoaded', event => {
+    loadDarkMode()
     consumer({ clear: false, urlRequest: request.all })
 })
 
@@ -52,6 +55,33 @@ document.addEventListener('DOMContentLoaded', event => {
 document.addEventListener('submit', event => {
     event.preventDefault()
 })
+
+
+/**
+ * @typedef {Object} darkModeTheme
+ * @property {Boolean} state
+ * @param {darkModeTheme} params 
+ */
+function darkMode() {
+    const htmlElement = document.documentElement.classList
+    if(htmlElement.contains('dark')) {
+        htmlElement.remove('dark')
+        localStorage.setItem('theme', 'light')
+    }else {
+        htmlElement.add('dark')
+        localStorage.setItem('theme', 'dark')
+    }
+}
+
+
+function loadDarkMode() {
+    if(localStorage.getItem('theme') === 'dark'  || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        console.log('entro', 'theme' in localStorage, localStorage.getItem('theme') === 'dark', window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.classList.add('dark')
+    }else {
+        document.documentElement.classList.remove('dark')
+    }
+}
 
 
 /**

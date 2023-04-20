@@ -14,4 +14,26 @@
         font-size: 62.5%;
         font-family: 'Nunito Sans', sans-serif;
     }
+
+    body::-webkit-scrollbar {
+        width: 0.7rem;
+        @apply bg-white;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        height: 12rem;
+        @apply rounded-lg bg-blue-200-dark;
+    }
+
+    body::-webkit-scrollbar-track-piece {
+        margin-block: 0.3rem;
+    }
+
+    html.dark body::-webkit-scrollbar {
+        @apply bg-blue-200-dark;
+    }
+
+    html.dark body::-webkit-scrollbar-thumb {
+        @apply bg-gray;
+    }
 }
