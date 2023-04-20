@@ -443,7 +443,7 @@ body::-webkit-scrollbar-thumb {
   height: 12rem;
   border-radius: 1rem;
   --tw-bg-opacity: 1;
-  background-color: hsl(207 26% 17% / var(--tw-bg-opacity));
+  background-color: hsl(200 15% 8% / var(--tw-bg-opacity));
 }
 
 body::-webkit-scrollbar-track-piece {

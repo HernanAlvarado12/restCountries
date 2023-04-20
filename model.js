@@ -36,8 +36,8 @@ document.addEventListener('click', event => {
 })
 
 document.addEventListener('keyup', event => {    
-    const regex = new RegExp('^[A-z]$')
-    if(inputCountry === document.activeElement && regex.test(event.key)) {
+    const regex = new RegExp('^[A-z\n\b\r]+$')
+    if(regex.test(event.key)) {
         searchCountry()
     }
 })
@@ -76,7 +76,6 @@ function darkMode() {
 
 function loadDarkMode() {
     if(localStorage.getItem('theme') === 'dark'  || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        console.log('entro', 'theme' in localStorage, localStorage.getItem('theme') === 'dark', window.matchMedia('(prefers-color-scheme: dark)').matches)
         document.documentElement.classList.add('dark')
     }else {
         document.documentElement.classList.remove('dark')

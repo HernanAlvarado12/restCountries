@@ -22,7 +22,7 @@
 
     body::-webkit-scrollbar-thumb {
         height: 12rem;
-        @apply rounded-lg bg-blue-200-dark;
+        @apply rounded-lg bg-blue;
     }
 
     body::-webkit-scrollbar-track-piece {
