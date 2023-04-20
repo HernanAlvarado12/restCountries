@@ -36,7 +36,8 @@ module.exports = {
         xl: '4.2rem'
       },
       gridTemplateColumns: {
-        main: 'repeat(auto-fill, minmax(28rem, 40rem))'
+        main: 'repeat(auto-fill, minmax(28rem, 40rem))',
+        border: 'repeat(auto-fill, minmax(15rem, 1fr))'
       },
       borderRadius: {
         sm: '0.6rem',

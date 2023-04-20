@@ -19,9 +19,10 @@
         width: 0.7rem;
         @apply bg-white;
     }
-
+    
     body::-webkit-scrollbar-thumb {
         height: 12rem;
+        max-height: 15rem;
         @apply rounded-lg bg-blue;
     }
 
