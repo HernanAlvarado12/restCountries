@@ -585,6 +585,10 @@ html.dark body::-webkit-scrollbar-thumb {
   margin-bottom: 3rem;
 }
 
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
 .mb-3 {
   margin-bottom: 3rem;
 }
@@ -611,10 +615,6 @@ html.dark body::-webkit-scrollbar-thumb {
 
 .mt-5 {
   margin-top: 5rem;
-}
-
-.mb-2 {
-  margin-bottom: 2rem;
 }
 
 .line-clamp-1 {
@@ -660,10 +660,6 @@ html.dark body::-webkit-scrollbar-thumb {
   height: 3rem;
 }
 
-.h-3\.5 {
-  height: 3.5rem;
-}
-
 .h-4 {
   height: 4rem;
 }
@@ -676,8 +672,8 @@ html.dark body::-webkit-scrollbar-thumb {
   height: 100%;
 }
 
-.min-h-screen {
-  min-height: 100vh;
+.min-h-main {
+  min-height: calc(100vh - 8rem);
 }
 
 .w-1 {
@@ -750,6 +746,10 @@ html.dark body::-webkit-scrollbar-thumb {
   justify-content: space-between;
 }
 
+.justify-stretch {
+  justify-content: stretch;
+}
+
 .gap-2 {
   gap: 2rem;
 }
@@ -775,6 +775,10 @@ html.dark body::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -798,11 +802,6 @@ html.dark body::-webkit-scrollbar-thumb {
 
 .border-r-transparent {
   border-right-color: transparent;
-}
-
-.bg-blue-100-dark {
-  --tw-bg-opacity: 1;
-  background-color: hsl(209 23% 22% / var(--tw-bg-opacity));
 }
 
 .bg-gray {
@@ -945,6 +944,26 @@ html.dark body::-webkit-scrollbar-thumb {
   -webkit-line-clamp: 1;
 }
 
+.selection\:text-green-500 *::-moz-selection {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.selection\:text-green-500 *::selection {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.selection\:text-green-500::-moz-selection {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.selection\:text-green-500::selection {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:translate-x-\[3px\]) {
   --tw-translate-x: 3px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -985,6 +1004,11 @@ html.dark body::-webkit-scrollbar-thumb {
   color: hsl(0 0% 98% / var(--tw-text-opacity));
 }
 
+:is(.dark .dark\:text-blue) {
+  --tw-text-opacity: 1;
+  color: hsl(200 15% 8% / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:shadow-2xl) {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -992,6 +1016,18 @@ html.dark body::-webkit-scrollbar-thumb {
 }
 
 @media (min-width: 640px) {
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .sm\:mt-6 {
+    margin-top: 6rem;
+  }
+
+  .sm\:max-h-\[35rem\] {
+    max-height: 35rem;
+  }
+
   .sm\:w-full {
     width: 100%;
   }
@@ -1003,6 +1039,10 @@ html.dark body::-webkit-scrollbar-thumb {
   .sm\:gap-x-2 {
     -moz-column-gap: 2rem;
          column-gap: 2rem;
+  }
+
+  .sm\:gap-y-5 {
+    row-gap: 5rem;
   }
 }
 
@@ -1037,6 +1077,26 @@ html.dark body::-webkit-scrollbar-thumb {
 }
 
 @media (min-width: 900px) {
+  .lm\:m-0 {
+    margin: 0px;
+  }
+
+  .lm\:grid {
+    display: grid;
+  }
+
+  .lm\:h-3\/5 {
+    height: 60%;
+  }
+
+  .lm\:h-full {
+    height: 100%;
+  }
+
+  .lm\:max-h-full {
+    max-height: 100%;
+  }
+
   .lm\:w-85 {
     width: 85%;
   }
@@ -1045,13 +1105,40 @@ html.dark body::-webkit-scrollbar-thumb {
     max-width: 1280px;
   }
 
+  .lm\:max-w-3xl {
+    max-width: 48rem;
+  }
+
+  .lm\:max-w-screen-2xl {
+    max-width: 1536px;
+  }
+
+  .lm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lm\:gap-x-3 {
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:gap-x-3 {
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
+  }
+
+  .lg\:gap-x-3\.5 {
+    -moz-column-gap: 3.5rem;
+         column-gap: 3.5rem;
   }
 }

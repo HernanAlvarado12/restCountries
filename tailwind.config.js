@@ -10,6 +10,9 @@ module.exports = {
       screens: {
         lm: '900px'
       },
+      minHeight: {
+        main: 'calc(100vh - 8rem)'
+      },
       spacing: {
         '0.5': '0.5rem',
         '1': '1rem',

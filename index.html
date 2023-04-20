@@ -27,10 +27,10 @@
         <link rel ="stylesheet" href ="./css/tailwind.css">
     </head>
 
-    <body>
+    <body class ="overflow-x-hidden">
 
         <header class ="bg-white dark:bg-blue-100-dark">
-            <nav class ="w-90 h-8 mx-auto flex items-center justify-between lm:w-85">
+            <nav class ="w-90 h-8 mx-auto flex items-center justify-between lm:w-85 lm:max-w-screen-xl">
                 <h2 class ="text-blue text-md font-extrabold dark:text-gray">Where is the world?</h2>
                 <div class ="flex items-center gap-x-1">
                     <span class ="w-1.5 h-1.5 block relative overflow-hidden cursor-pointer rounded-full border border-blue border-r-transparent -rotate-45 dark:border-blue-100-dark dark:bg-white">
@@ -41,7 +41,7 @@
             </nav>
         </header>
 
-        <main class="min-h-screen bg-white dark:bg-blue-200-dark">
+        <main class="h-full min-h-main bg-white dark:bg-blue-200-dark">
             <section class ="w-90 mx-auto pt-2 pb-6 flex flex-col lm:w-85 lm:max-w-screen-xl">
                 <section class ="md:mb-3 md:flex md:items-center md:justify-between">
                     <form class ="w-full p-0.5 rounded-sm bg-green-100 dark:bg-shadow md:w-2/5">
@@ -90,33 +90,33 @@
                 </section>                
             </section>
             <section class ="w-90 mx-auto hidden pt-2 pb-6 lm:w-85 lm:max-w-screen-xl" id ="selectedCountry">
-                <button class ="w-[12rem] h-4 flex items-center justify-center gap-x-1 text-blue text-sm font-thin rounded-sm shadow-2xl bg-blue-100-dark dark:text-gray">
+                <button class ="w-[12rem] h-4 flex items-center justify-center gap-x-1 text-blue text-sm font-thin rounded-sm shadow-2xl dark:bg-blue-100-dark dark:text-gray" id ="back">
                     <ion-icon class ="" name ="arrow-back-outline"></ion-icon>
                     <span>Back</span>
                 </button>
-                <section class ="mt-5" id ="countryInformation">
+                <section class ="mt-5 lm:grid lm:grid-cols-2 lm:gap-x-3" id ="countryInformation">
                     <figure>
-                        <img class ="w-full aspect-video" alt ="flag country" draggable ="false" loading ="lazy">
+                        <img class ="w-full aspect-video sm:max-h-[35rem] lm:h-full lm:max-h-full lm:max-w-3xl" alt ="flag country" draggable ="false" loading ="lazy">
                     </figure>                       
-                    <section class ="flex justify-center flex-col gap-y-3 capitalize">
+                    <section class ="mt-4 grid justify-stretch flex-col gap-y-3 capitalize sm:grid-cols-2 sm:gap-x-2 sm:gap-y-5 lm:m-0 lg:gap-x-3.5">
                         <ul class ="text-blue text-xs font-medium dark:text-gray">
-                            <h3 class ="mt-4 mb-3 text-base font-bold" id ="countryDetail">Belgica</h3>
-                            <li>native name:<span class ="ml-0.5 text-gray font-light" id ="nativeNameCountry"></span></li>
-                            <li>population:<span class ="ml-0.5 text-gray font-light" id ="populationCountry"></span></li>
-                            <li>region:<span class ="ml-0.5 text-gray font-light" id ="regionCountry"></span></li>                
-                            <li>sub region:<span class ="ml-0.5 text-gray font-light" id="subRegionCountry"></span></li>
-                            <li>capital:<span class ="ml-0.5 text-gray font-light" id ="capitalCountry"></span></li>
+                            <h3 class ="mb-3 text-base font-bold" id ="countryDetail">Belgica</h3>
+                            <li>native name:<span class ="ml-0.5 dark:text-gray font-light" id ="nativeNameCountry"></span></li>
+                            <li>population:<span class ="ml-0.5 dark:text-gray font-light" id ="populationCountry"></span></li>
+                            <li>region:<span class ="ml-0.5 dark:text-gray font-light" id ="regionCountry"></span></li>                
+                            <li>sub region:<span class ="ml-0.5 dark:text-gray font-light" id="subRegionCountry"></span></li>
+                            <li>capital:<span class ="ml-0.5 dark:text-gray font-light" id ="capitalCountry"></span></li>
                         </ul>
-                        <ul class= "text-blue text-xs font-medium dark:text-gray">
-                            <li>top level domain:<span class ="ml-0.5 text-gray font-light" id ="topLevelCountry"></span></li>
-                            <li>currencies:<span class ="ml-0.5 text-gray font-light" id ="currenciesCountry"></span></li>
-                            <li>languages:<span class ="ml-0.5 text-gray font-light" id ="languagesCountry"></span></li>
+                        <ul class= "text-blue text-xs font-medium dark:text-gray sm:mt-6">
+                            <li>top level domain:<span class ="ml-0.5 dark:text-gray font-light" id ="topLevelCountry"></span></li>
+                            <li>currencies:<span class ="ml-0.5 dark:text-gray font-light" id ="currenciesCountry"></span></li>
+                            <li>languages:<span class ="ml-0.5 dark:text-gray font-light" id ="languagesCountry"></span></li>
                         </ul>
-                        <div class= "text-blue text-xs font-medium dark:text-gray">
-                            <h3 class ="mb-2 text-md font-medium">Border Countries</h3>
+                        <div class= "text-blue text-xs font-medium dark:text-gray sm:col-span-2">
+                            <h3 class ="mb-2 text-md font-medium">Border Countries:</h3>
                             <div class ="grid grid-cols-border items-center justify-center gap-2">
                                 <template id ="borderTemplate">
-                                    <button class ="w-full h-3.5 text-blue font-light capitalize rounded-sm dark:text-gray dark:shadow-2xl dark:bg-blue-100-dark"></button>
+                                    <button class ="w-full h-3 text-blue font-light capitalize rounded-sm dark:text-gray dark:shadow-2xl dark:bg-blue-100-dark"></button>
                                 </template>
                             </div>
                         </div>

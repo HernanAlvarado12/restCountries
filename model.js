@@ -30,8 +30,12 @@ document.addEventListener('click', event => {
         darkMode()
     }else if(target.matches('main section#countrySection :is(article, figure, img, figcaption, h3, div, p, span)')) {
         selectedCountry(target)   
-    }else if(target.matches('#selectedCountry button')) {
+    }else if(target.matches('#selectedCountry :is(#back, #back > :is(span, ion-icon))')) {
         toggleClassListContainers()
+    }else {
+        if(!filterRegion.classList.contains('hidden')) {
+            filterRegion.classList.add('hidden')
+        }
     }
 })
 
@@ -70,15 +74,15 @@ function selectedCountry(currentNode) {
     fetch(`${request.search}/${parentElement.getAttribute('data-country')}`)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             const [ { name: { official: name, nativeName } , population, region, subregion, capital, tld, currencies, languages, borders = [], flags: { png: path }  } ] = json
             countryInformationContainer.querySelector('img').setAttribute('src', path);
             countryInformationContainer.querySelector('h3').textContent = name
             const listItem = countryInformationContainer.querySelectorAll('#countryInformation section > ul > li > span')
             const { official } = nativeName[Object.keys(nativeName)[0]] 
             const { name: currency } = currencies[Object.keys(currencies)[0]]
-            const language = Object.keys(languages).join(',')
+            const language = Object.keys(languages).join(', ')
             const fragment = document.createDocumentFragment()
+            clearNodes(document.querySelector('#countryInformation > section > div > div'))
             borders.forEach(border => {
                 const clone = borderTemplate.cloneNode(true)
                 clone.firstElementChild.textContent = border
@@ -226,6 +230,6 @@ function parentNode(currentNode, match) {
  * @param {Element} currentNode 
  */
 function clearNodes(currentNode) {
-    [...currentNode.children].filter(node => node.nodeName === 'ARTICLE')
+    [...currentNode.children].filter(node => node.nodeName === 'ARTICLE' || node.nodeName === 'BUTTON')
                              .forEach(node => node.remove())
 }
